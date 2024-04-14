@@ -1,16 +1,21 @@
 package com.example.demo.model.requests;
 
+import javax.validation.constraints.NotNull;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class ModifyCartRequest {
 	
 	@JsonProperty
+	@NotNull
 	private String username;
-	
+
 	@JsonProperty
+	@NotNull
 	private long itemId;
-	
+
 	@JsonProperty
+	@NotNull
 	private int quantity;
 
 	public String getUsername() {
@@ -36,7 +41,5 @@ public class ModifyCartRequest {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	
-	
 
 }
