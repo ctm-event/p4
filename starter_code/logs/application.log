@@ -1,0 +1,37 @@
+2024-04-15T22:57:48.243+0700 ERROR Submit order failure: username not found
+2024-04-15T22:57:48.247+0700 ERROR getOrdersForUser username: User not found.
+2024-04-15T22:57:48.248+0700 INFO Submit order success: 
+2024-04-15T22:57:48.249+0700 INFO Submit order success: 
+2024-04-15T22:57:48.250+0700 ERROR Submit order failure: username not found
+2024-04-15T22:57:48.292+0700 INFO Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.example.demo.SareetaApplicationTests], using SpringBootContextLoader
+2024-04-15T22:57:48.295+0700 INFO Could not detect default resource locations for test class [com.example.demo.SareetaApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+2024-04-15T22:57:48.295+0700 INFO Could not detect default configuration classes for test class [com.example.demo.SareetaApplicationTests]: SareetaApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-04-15T22:57:48.364+0700 INFO Found @SpringBootConfiguration com.example.demo.SareetaApplication for test class com.example.demo.SareetaApplicationTests
+2024-04-15T22:57:48.417+0700 INFO Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2024-04-15T22:57:48.427+0700 INFO Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@58ff8d79, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@7e19755a, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@5d5c04f9, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@6f49d153, org.springframework.test.context.support.DirtiesContextTestExecutionListener@4b790d86, org.springframework.test.context.transaction.TransactionalTestExecutionListener@7e7f0216, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@4339baec, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@62db3891, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@61cd1c71, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@6724cdec, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@6944e53e, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@52e04737]
+2024-04-15T22:57:48.589+0700 INFO Starting SareetaApplicationTests on DESKTOP-SV5AGQE with PID 24740 (started by Bot Heo in D:\udacity\p4\starter_code)
+2024-04-15T22:57:48.590+0700 INFO No active profile set, falling back to default profiles: default
+2024-04-15T22:57:48.906+0700 INFO Bootstrapping Spring Data repositories in DEFAULT mode.
+2024-04-15T22:57:48.947+0700 INFO Finished Spring Data repository scanning in 36ms. Found 4 repository interfaces.
+2024-04-15T22:57:49.290+0700 INFO Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$dc1b265b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-04-15T22:57:49.422+0700 INFO HikariPool-1 - Starting...
+2024-04-15T22:57:49.537+0700 INFO HikariPool-1 - Start completed.
+2024-04-15T22:57:49.606+0700 INFO HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2024-04-15T22:57:49.681+0700 INFO HHH000412: Hibernate Core {5.3.10.Final}
+2024-04-15T22:57:49.683+0700 INFO HHH000206: hibernate.properties not found
+2024-04-15T22:57:49.717+0700 INFO HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2024-04-15T22:57:49.826+0700 INFO HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2024-04-15T22:57:50.193+0700 INFO Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-15T22:57:50.648+0700 WARN spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-15T22:57:50.735+0700 INFO Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@53b9952f, org.springframework.security.web.context.SecurityContextPersistenceFilter@7995a589, org.springframework.security.web.header.HeaderWriterFilter@641ab175, org.springframework.web.filter.CorsFilter@7bdddfa4, org.springframework.security.web.authentication.logout.LogoutFilter@1892865f, com.example.demo.security.JWTAuthFilter@1e12fdcf, com.example.demo.security.JWTAuthVerificationFilter@1d0fc0bc, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7bbd0006, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@148f94dc, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2003edf, org.springframework.security.web.session.SessionManagementFilter@6b35b0f4, org.springframework.security.web.access.ExceptionTranslationFilter@7d1cfe97, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@356ab368]
+2024-04-15T22:57:50.987+0700 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2024-04-15T22:57:51.127+0700 INFO Started SareetaApplicationTests in 2.674 seconds (JVM running for 3.899)
+2024-04-15T22:57:51.154+0700 ERROR Create user username: Password requires at least 8 characters.
+2024-04-15T22:57:51.156+0700 INFO Create user Success: username
+2024-04-15T22:57:51.157+0700 ERROR Create user username: Password confirm miss match
+2024-04-15T22:57:51.162+0700 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2024-04-15T22:57:51.163+0700 INFO Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-15T22:57:51.164+0700 INFO HikariPool-1 - Shutdown initiated...
+2024-04-15T22:57:51.165+0700 INFO HikariPool-1 - Shutdown completed.
