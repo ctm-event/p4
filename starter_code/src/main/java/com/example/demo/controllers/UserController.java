@@ -48,7 +48,6 @@ public class UserController {
 
 	@PostMapping("/create")
 	public ResponseEntity<User> createUser(@RequestBody CreateUserRequest createUserRequest) {
-		logger.info("Create User", createUserRequest);
 		String userPassword = createUserRequest.getPassword();
 		if (userPassword.length() < 8) {
 			logger.error("Create user {}: Password requires at least 8 characters.",
@@ -70,6 +69,7 @@ public class UserController {
 			cartRepository.save(cart);
 			user.setCart(cart);
 			userRepository.save(user);
+			logger.info("Create user Success: {}", createUserRequest.getUsername());
 			return ResponseEntity.ok(user);
 		} catch (Exception e) {
 			logger.info("Create user error: {}", e.getMessage());

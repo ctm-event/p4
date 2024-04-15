@@ -8,6 +8,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -20,6 +22,8 @@ import com.example.demo.constants.GlobalConstants;
 
 @Component
 public class JWTAuthVerificationFilter extends BasicAuthenticationFilter {
+
+    private static final Logger logger = LoggerFactory.getLogger(JWTAuthVerificationFilter.class);
 
     public JWTAuthVerificationFilter(AuthenticationManager authManager) {
         super(authManager);
@@ -53,8 +57,12 @@ public class JWTAuthVerificationFilter extends BasicAuthenticationFilter {
                 .verify(token.replace(GlobalConstants.AUTH_TOKEN_TYPE, ""))
                 .getSubject();
 
-        return user == null
-                ? null
-                : new UsernamePasswordAuthenticationToken(user, null, new ArrayList<>());
+        if (user == null) {
+            logger.info("Login faild");
+            return null;
+        }
+
+        logger.info("Login succress: {}", user);
+        return new UsernamePasswordAuthenticationToken(user, null, new ArrayList<>());
     };
 }
