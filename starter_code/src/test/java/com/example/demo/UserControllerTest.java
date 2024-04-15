@@ -2,7 +2,6 @@ package com.example.demo;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import java.util.Optional;
@@ -23,18 +22,17 @@ import com.example.demo.model.persistence.repositories.UserRepository;
 import com.example.demo.model.requests.CreateUserRequest;
 
 public class UserControllerTest {
-
   @InjectMocks
   private UserController userController;
 
   @Mock
-  private final UserRepository users = mock(UserRepository.class);
+  private BCryptPasswordEncoder bCryptPasswordEncoder;
+  
+  @Mock
+  private UserRepository users;
 
   @Mock
-  private final CartRepository cartRepository = mock(CartRepository.class);
-
-  @Mock
-  private final BCryptPasswordEncoder encoder = mock(BCryptPasswordEncoder.class);
+  private CartRepository cartRepository;
 
   @Before
   public void setUp() {
@@ -43,13 +41,12 @@ public class UserControllerTest {
 
   @Test
   public void createUser() throws Exception {
-    when(encoder.encode("P@ssw0rd")).thenReturn("HashedPassword");
-
     CreateUserRequest userRequest = new CreateUserRequest();
     userRequest.setUsername("username");
     userRequest.setPassword("P@ssw0rd");
     userRequest.setConfirmPassword("P@ssw0rd");
 
+    when(bCryptPasswordEncoder.encode("P@ssw0rd")).thenReturn("HashedPassword");
     ResponseEntity<User> response = userController.createUser(userRequest);
 
     assertNotNull(response);
@@ -57,9 +54,38 @@ public class UserControllerTest {
 
     User user = response.getBody();
     assertNotNull(user);
-    assertEquals(0, user.getId());
-    assertEquals("username", user.getUsername());
-    assertEquals("HashedPassword", user.getPassword());
+    assertEquals(user.getId(), 0);
+    assertEquals(user.getUsername(), "username");
+
+    assertEquals(user.getPassword(), "HashedPassword");
+  }
+
+  @Test
+  public void createUserBadPasswordLength() throws Exception {
+    CreateUserRequest userRequest = new CreateUserRequest();
+    userRequest.setUsername("username");
+    userRequest.setPassword("P@ssw0r");
+    userRequest.setConfirmPassword("P@ssw0r");
+
+    ResponseEntity<User> response = userController.createUser(userRequest);
+
+    assertNotNull(response);
+    assertEquals(response.getStatusCode(), HttpStatus.BAD_REQUEST);
+    assertEquals(response.getBody(), null);
+  }
+
+  @Test
+  public void createUserPasswordMissMatch() throws Exception {
+    CreateUserRequest userRequest = new CreateUserRequest();
+    userRequest.setUsername("username");
+    userRequest.setPassword("P@ssw0rd");
+    userRequest.setConfirmPassword("P@ssw0rd1");
+
+    ResponseEntity<User> response = userController.createUser(userRequest);
+
+    assertNotNull(response);
+    assertEquals(response.getStatusCode(), HttpStatus.BAD_REQUEST);
+    assertEquals(response.getBody(), null);
   }
 
   @Test
@@ -79,7 +105,8 @@ public class UserControllerTest {
     ResponseEntity<User> response = userController.findById(1L);
 
     assertNotNull(response);
-    assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
+    assertEquals(response.getStatusCode(), HttpStatus.NOT_FOUND);
+    assertEquals(response.getBody(), null);
   }
 
   @Test
@@ -100,7 +127,6 @@ public class UserControllerTest {
   @Test
   public void findByUsernameUserNotFound() {
     ResponseEntity<User> response = userController.findByUserName("username");
-
     assertNotNull(response);
     assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
   }

@@ -2,7 +2,6 @@ package com.example.demo;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
@@ -33,10 +32,10 @@ public class OrderControllerTest {
   private OrderController orderController;
 
   @Mock
-  private final UserRepository users = mock(UserRepository.class);
+  private UserRepository users;
 
-  @Mock
-  private final OrderRepository orders = mock(OrderRepository.class);
+   @Mock
+  private OrderRepository orders;
 
   @Before
   public void setup() {
@@ -45,7 +44,7 @@ public class OrderControllerTest {
 
   @Test
   public void submit() {
-    setUp();
+    initMockData();
 
     List<Item> itemList = new ArrayList<>();
     itemList.add(item);
@@ -70,7 +69,7 @@ public class OrderControllerTest {
 
   @Test
   public void submitUserNotFoundError() {
-    setUp();
+    initMockData();
 
     cart.setUser(user);
     user.setCart(cart);
@@ -88,7 +87,7 @@ public class OrderControllerTest {
 
   @Test
   public void ordersByUser() {
-    setUp();
+    initMockData();
 
     List<Item> itemList = new ArrayList<>();
     itemList.add(item);
@@ -111,7 +110,7 @@ public class OrderControllerTest {
 
   @Test
   public void ordersByUserNotFound() {
-    setUp();
+    initMockData();
 
     cart.setUser(user);
     user.setCart(cart);
@@ -130,7 +129,7 @@ public class OrderControllerTest {
     assertEquals(HttpStatus.NOT_FOUND, responseEntity.getStatusCode());
   }
 
-  private void setUp() {
+  private void initMockData() {
     user = TestHelper.createUser();
     item = TestHelper.createItem();
     cart = user.getCart();

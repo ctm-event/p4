@@ -2,7 +2,6 @@ package com.example.demo;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -35,13 +34,13 @@ public class CartControllerTest {
   private CartController cartController;
 
   @Mock
-  private final CartRepository cartRepository = mock(CartRepository.class);
+  private CartRepository cartRepository;
 
   @Mock
-  private final UserRepository users = mock(UserRepository.class);
+  private UserRepository users;
 
   @Mock
-  private final ItemRepository items = mock(ItemRepository.class);
+  private ItemRepository items;
 
   @Before
   public void setup() {
@@ -50,8 +49,8 @@ public class CartControllerTest {
 
   @Test
   public void addToCart() {
-    setUp();
-   
+    initMockData();
+  
     ModifyCartRequest modifyCartRequest = TestHelper.createModifyCartRequest("username", 1, 1);
     ResponseEntity<Cart> responseEntity = cartController.addTocart(modifyCartRequest);
     assertNotNull(responseEntity);
@@ -68,9 +67,9 @@ public class CartControllerTest {
   public void addToCartUserNotFoundError() {
     ModifyCartRequest modifyCartRequest = TestHelper.createModifyCartRequest("", 1, 1);
     ResponseEntity<Cart> responseEntity = cartController.addTocart(modifyCartRequest);
-
     assertNotNull(responseEntity);
-    assertEquals(404, responseEntity.getStatusCodeValue());
+    assertEquals(responseEntity.getBody(), null);
+    assertEquals(responseEntity.getStatusCodeValue(), 404);
   }
 
   @Test
@@ -88,7 +87,7 @@ public class CartControllerTest {
 
   @Test
   public void removeFromCart() {
-    setUp();
+    initMockData();
 
     ModifyCartRequest modifyCartRequest = TestHelper.createModifyCartRequest("username", 1, 1);
     ResponseEntity<Cart> responseEntity = cartController.removeFromcart(modifyCartRequest);
@@ -133,7 +132,7 @@ public class CartControllerTest {
     assertEquals(404, responseEntity.getStatusCodeValue());
   }
 
-  private void setUp() {
+  private void initMockData() {
     user = TestHelper.createUser();
     item = TestHelper.createItem();
     cart = user.getCart();

@@ -2,7 +2,6 @@ package com.example.demo;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
@@ -27,7 +26,7 @@ public class ItemControllerTest {
   private ItemController itemController;
 
   @Mock
-  private final ItemRepository items = mock(ItemRepository.class);
+  private ItemRepository items;
 
   @Before
   public void setup() {

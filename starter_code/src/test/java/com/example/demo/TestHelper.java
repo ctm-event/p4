@@ -17,7 +17,6 @@ public class TestHelper {
 
     Cart cart = new Cart();
     cart.setId(1L);
-    cart.setUser(null);
     cart.setItems(new ArrayList<Item>());
     cart.setTotal(BigDecimal.valueOf(0.0));
     user.setCart(cart);
@@ -30,7 +29,7 @@ public class TestHelper {
     item.setId(1L);
     item.setName("Created Item");
     item.setDescription("This is fake item.");
-    item.setPrice(BigDecimal.valueOf(10.0));
+    item.setPrice(BigDecimal.valueOf(177));
     return item;
   }
 

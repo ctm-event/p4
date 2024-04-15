@@ -1,0 +1,32 @@
+2024-04-15T17:26:16.984+0700 INFO Starting SareetaApplication on DESKTOP-SV5AGQE with PID 24924 (D:\udacity\p4\starter_code\target\classes started by Bot Heo in d:\udacity\p4)
+2024-04-15T17:26:16.987+0700 INFO No active profile set, falling back to default profiles: default
+2024-04-15T17:26:17.257+0700 INFO Bootstrapping Spring Data repositories in DEFAULT mode.
+2024-04-15T17:26:17.294+0700 INFO Finished Spring Data repository scanning in 32ms. Found 4 repository interfaces.
+2024-04-15T17:26:17.565+0700 INFO Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$c0357f07] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-04-15T17:26:17.817+0700 INFO Tomcat initialized with port(s): 8080 (http)
+2024-04-15T17:26:17.826+0700 INFO Initializing ProtocolHandler ["http-nio-8080"]
+2024-04-15T17:26:17.832+0700 INFO Starting service [Tomcat]
+2024-04-15T17:26:17.833+0700 INFO Starting Servlet engine: [Apache Tomcat/9.0.19]
+2024-04-15T17:26:17.938+0700 INFO Initializing Spring embedded WebApplicationContext
+2024-04-15T17:26:17.938+0700 INFO Root WebApplicationContext: initialization completed in 922 ms
+2024-04-15T17:26:18.043+0700 INFO HikariPool-1 - Starting...
+2024-04-15T17:26:18.138+0700 INFO HikariPool-1 - Start completed.
+2024-04-15T17:26:18.171+0700 INFO HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2024-04-15T17:26:18.214+0700 INFO HHH000412: Hibernate Core {5.3.10.Final}
+2024-04-15T17:26:18.216+0700 INFO HHH000206: hibernate.properties not found
+2024-04-15T17:26:18.298+0700 INFO HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2024-04-15T17:26:18.379+0700 INFO HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2024-04-15T17:26:18.887+0700 INFO Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-15T17:26:19.362+0700 WARN spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-15T17:26:19.419+0700 INFO Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4a4ff5ed, org.springframework.security.web.context.SecurityContextPersistenceFilter@77d0dbba, org.springframework.security.web.header.HeaderWriterFilter@58636b50, org.springframework.web.filter.CorsFilter@5ddb302, org.springframework.security.web.authentication.logout.LogoutFilter@30228de7, com.example.demo.security.JWTAuthFilter@4b7ab7ab, com.example.demo.security.JWTAuthVerificationFilter@cf9bd1e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@67ceeffd, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@59f3426f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@39acd1f1, org.springframework.security.web.session.SessionManagementFilter@1ad1b737, org.springframework.security.web.access.ExceptionTranslationFilter@144e36ae, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1b444b5]
+2024-04-15T17:26:19.489+0700 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2024-04-15T17:26:19.589+0700 INFO Starting ProtocolHandler ["http-nio-8080"]
+2024-04-15T17:26:19.613+0700 INFO Tomcat started on port(s): 8080 (http) with context path ''
+2024-04-15T17:26:19.615+0700 INFO Started SareetaApplication in 2.786 seconds (JVM running for 3.223)
+2024-04-15T17:26:19.616+0700 INFO Application Started!
+2024-04-15T17:26:22.019+0700 INFO Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-15T17:26:22.019+0700 INFO Initializing Servlet 'dispatcherServlet'
+2024-04-15T17:26:22.023+0700 INFO Completed initialization in 4 ms
+2024-04-15T17:27:18.436+0700 INFO Create User
