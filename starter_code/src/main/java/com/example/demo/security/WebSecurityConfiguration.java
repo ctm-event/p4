@@ -11,18 +11,22 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.example.demo.constants.GlobalConstants;
+import com.example.demo.services.CustomAuthenticationEntryPoint;
 import com.example.demo.services.UserDetailsServiceImpl;
 
 @EnableWebSecurity
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     private final UserDetailsServiceImpl userDetailsService;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
+    private final CustomAuthenticationEntryPoint customAuthenticationEntryPoint;
 
     public WebSecurityConfiguration(
             UserDetailsServiceImpl userDetailsService,
-            BCryptPasswordEncoder bCryptPasswordEncoder) {
+            BCryptPasswordEncoder bCryptPasswordEncoder,
+            CustomAuthenticationEntryPoint customAuthenticationEntryPoint) {
         this.userDetailsService = userDetailsService;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+        this.customAuthenticationEntryPoint = customAuthenticationEntryPoint;
     }
 
     @Override
@@ -38,6 +42,9 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .addFilter(jwtAuthVerificationFilter)
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+
+        http.exceptionHandling()
+                .authenticationEntryPoint(customAuthenticationEntryPoint);
     }
 
     @Override
@@ -48,7 +55,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.parentAuthenticationManager(authenticationManagerBean())
+        auth
                 .userDetailsService(userDetailsService)
                 .passwordEncoder(bCryptPasswordEncoder);
     }
